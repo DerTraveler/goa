@@ -1,0 +1,17 @@
+service: goa
+
+
+provider:
+  name: aws
+  runtime: python3.6
+
+
+functions:
+  # functions
+
+
+resources:
+ Resources:
+   # resources
+ Outputs:
+   # outputs

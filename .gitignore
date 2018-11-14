@@ -105,3 +105,6 @@ venv.bak/
 
 # Node.js
 node_modules/
+
+# Serverless directories
+.serverless
