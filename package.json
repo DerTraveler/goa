@@ -1,0 +1,11 @@
+{
+  "name": "goa",
+  "version": "0.1",
+  "description": "Photo Gallery on AWS",
+  "repository": "git@github.com:DerTraveler/goa.git",
+  "author": "Kevin Fischer <kfischer_okarin@yahoo.co.jp>",
+  "license": "MIT",
+  "dependencies": {
+    "serverless": "^1.32.0"
+  }
+}
