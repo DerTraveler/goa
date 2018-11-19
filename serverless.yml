@@ -1,10 +1,12 @@
 service: goa
 
 
+plugins:
+  - serverless-pseudo-parameters
+
 provider:
   name: aws
   runtime: python3.6
-
 
 functions:
   # functions
