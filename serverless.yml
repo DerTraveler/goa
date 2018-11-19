@@ -7,13 +7,16 @@ plugins:
 provider:
   name: aws
   runtime: python3.6
+  stage: production
+  environment:
+    BUCKET_NAME:
+      Ref: Bucket
+
 
 functions:
-  # functions
 
 
 resources:
- Resources:
-   # resources
- Outputs:
-   # outputs
+  Resources:
+    Bucket:
+      Type: AWS::S3::Bucket
