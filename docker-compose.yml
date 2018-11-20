@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web-client:
+    build: web-client
+    image: goa-web-client
+    command: yarn start
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./web-client/src:/usr/src/app/src
+  storybook:
+    image: goa-web-client
+    command: yarn storybook --ci
+    ports:
+      - "9009:9009"
+    volumes:
+      - ./web-client/src:/usr/src/app/src
