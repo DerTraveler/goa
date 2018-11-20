@@ -21,9 +21,9 @@ const styles = ({ palette }) => ({
   }
 });
 
-const Photo = ({ classes, src }) => (
+const Photo = ({ classes, photo }) => (
   <GridListTile className={classes.root}>
-    <img src={src} />
+    <img src={photo.thumbnail} />
     <GridListTileBar
       titlePosition="top"
       actionIcon={

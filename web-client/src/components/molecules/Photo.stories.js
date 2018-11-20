@@ -4,10 +4,12 @@ import Grid from "@material-ui/core/Grid";
 
 import Photo from "./Photo";
 
-export const photo = "http://placeimg.com/640/480/any";
+export const photo = {
+  thumbnail: "http://placeimg.com/320/240/any"
+};
 
 storiesOf("Photo", module).add("default", () => (
   <Grid container>
-    <Photo src={photo} />
+    <Photo photo={photo} />
   </Grid>
 ));
