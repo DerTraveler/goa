@@ -32,6 +32,11 @@ resources:
             AttributeDataType: String
             Mutable: true
             Required: true
+    UserPoolClient:
+      Type: AWS::Cognito::UserPoolClient
+      Properties:
+        UserPoolId:
+          Ref: UserPool
 
 custom:
   namePrefix: goa-${self:provider.stage}
