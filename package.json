@@ -6,7 +6,9 @@
   "author": "Kevin Fischer <kfischer_okarin@yahoo.co.jp>",
   "license": "MIT",
   "dependencies": {
-    "serverless": "^1.32.0",
-    "serverless-pseudo-parameters": "^2.2.0"
+    "serverless": "^1.32.0"
+  },
+  "devDependencies": {
+    "dotenv": "^6.1.0"
   }
 }

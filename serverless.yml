@@ -2,12 +2,13 @@ service: goa
 
 
 plugins:
-  - serverless-pseudo-parameters
+  - goa
 
 provider:
   name: aws
   runtime: python3.6
   stage: ${opt:stage, 'production'}
+  region: ${env:AWS_REGION, 'us-east-1'}
   environment:
     BUCKET_NAME:
       Ref: Bucket

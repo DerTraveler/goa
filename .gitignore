@@ -29,3 +29,7 @@ node_modules/
 
 # Serverless directories
 .serverless
+
+
+# Dotenv
+.env*local
