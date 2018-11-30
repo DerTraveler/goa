@@ -1,6 +1,6 @@
 {
   "name": "goa",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "Photo Gallery on AWS",
   "repository": "git@github.com:DerTraveler/goa.git",
   "author": "Kevin Fischer <kfischer_okarin@yahoo.co.jp>",
@@ -9,6 +9,7 @@
     "serverless": "^1.32.0"
   },
   "devDependencies": {
-    "dotenv": "^6.1.0"
+    "dotenv": "^6.1.0",
+    "prettier": "^1.15.3"
   }
 }

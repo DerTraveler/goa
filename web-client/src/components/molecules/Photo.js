@@ -1,24 +1,24 @@
-import React from "react";
-import GridListTile from "@material-ui/core/GridListTile";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
-import IconButton from "@material-ui/core/IconButton";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import { withStyles } from "@material-ui/core/styles";
+import React from 'react';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import IconButton from '@material-ui/core/IconButton';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = ({ palette }) => ({
   root: {
-    "& .PhotoHeader": {
-      display: "none"
+    '& .PhotoHeader': {
+      display: 'none',
     },
-    "&:hover": {
-      "& .PhotoHeader": {
-        display: "flex"
-      }
-    }
+    '&:hover': {
+      '& .PhotoHeader': {
+        display: 'flex',
+      },
+    },
   },
   icon: {
-    color: palette.common.white
-  }
+    color: palette.common.white,
+  },
 });
 
 const Photo = ({ classes, photo }) => (
