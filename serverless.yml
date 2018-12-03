@@ -1,21 +1,18 @@
 service: goa
 
-
 plugins:
   - goa
 
 provider:
   name: aws
-  runtime: python3.6
+  runtime: ruby2.5
   stage: ${opt:stage, 'production'}
   region: ${env:AWS_REGION, 'us-east-1'}
   environment:
     BUCKET_NAME:
       Ref: Bucket
 
-
 functions:
-
 
 resources:
   Resources:
