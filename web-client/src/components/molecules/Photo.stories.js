@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 
 import Photo from './Photo';
 
-export const photo = {
+const photo = {
   thumbnail: 'http://placeimg.com/320/240/any',
 };
 

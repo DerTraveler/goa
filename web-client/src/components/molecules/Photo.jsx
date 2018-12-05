@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
@@ -23,7 +24,7 @@ const styles = ({ palette }) => ({
 
 const Photo = ({ classes, photo }) => (
   <GridListTile className={classes.root}>
-    <img src={photo.thumbnail} />
+    <img src={photo.thumbnail} alt="" />
     <GridListTileBar
       titlePosition="top"
       actionIcon={
@@ -35,5 +36,13 @@ const Photo = ({ classes, photo }) => (
     />
   </GridListTile>
 );
+
+Photo.propTypes = {
+  classes: PropTypes.shape({
+    root: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+  }).isRequired,
+  photo: PropTypes.string.isRequired,
+};
 
 export default withStyles(styles)(Photo);
