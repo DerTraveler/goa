@@ -1,8 +1,6 @@
 'use strict';
 
-const dotenv = require('dotenv');
-dotenv.config({ path: '.env.local' });
-dotenv.config({ path: '.env' });
+require('./lib/env');
 
 class GoaPlugin {
   constructor(serverless, options) {
