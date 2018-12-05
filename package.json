@@ -10,6 +10,15 @@
   },
   "devDependencies": {
     "dotenv": "^6.1.0",
+    "jest": "^23.6.0",
     "prettier": "^1.15.3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/.serverless_plugins/"
+    ]
   }
 }
