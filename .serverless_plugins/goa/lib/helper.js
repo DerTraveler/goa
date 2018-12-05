@@ -14,6 +14,9 @@ const functions = {
   getUserPoolId() {
     return this.physicalIds['UserPool'];
   },
+  getUserPoolClientId() {
+    return this.physicalIds['UserPoolClient'];
+  },
 };
 
 module.exports = functions;
