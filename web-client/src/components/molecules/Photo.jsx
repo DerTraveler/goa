@@ -38,10 +38,6 @@ const Photo = ({ classes, photo }) => (
 );
 
 Photo.propTypes = {
-  classes: PropTypes.shape({
-    root: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
-  }).isRequired,
   photo: PropTypes.string.isRequired,
 };
 
