@@ -3,22 +3,25 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 
+import BaseTemplate from './BaseTemplate';
+
 const styles = {
   root: {
-    height: '100%',
+    'min-height': '100vh',
   },
 };
 
-const CenteredContent = ({ content, width, classes }) => (
-  <Grid container justify="center" alignItems="center" className={classes.root}>
-    <Grid item xs={width}>
-      {content}
+const CenteredContent = ({ children, width, classes }) => (
+  <BaseTemplate>
+    <Grid container justify="center" alignItems="center" className={classes.root}>
+      <Grid item xs={width}>
+        {children}
+      </Grid>
     </Grid>
-  </Grid>
+  </BaseTemplate>
 );
 
 CenteredContent.propTypes = {
-  content: PropTypes.node.isRequired,
   width: PropTypes.number,
 };
 
