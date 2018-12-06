@@ -5,11 +5,16 @@
   "dependencies": {
     "@material-ui/core": "^3.5.1",
     "@material-ui/icons": "^3.0.1",
+    "@types/jest": "^23.3.10",
+    "@types/lodash": "^4.14.119",
+    "@types/node": "^10.12.12",
+    "@types/react": "^16.7.13",
+    "@types/react-dom": "^16.0.11",
     "lodash": "^4.17.11",
-    "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "typescript": "^3.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,8 +40,13 @@
     "@storybook/addon-links": "^4.0.7",
     "@storybook/addons": "^4.0.7",
     "@storybook/react": "^4.0.7",
+    "@types/storybook__addon-actions": "^3.4.1",
+    "@types/storybook__addon-knobs": "^3.4.1",
+    "@types/storybook__addon-links": "^3.3.3",
+    "@types/storybook__react": "^4.0.0",
     "babel-loader": "^8.0.4",
     "eslint-config-prettier": "^3.3.0",
-    "prettier": "^1.15.2"
+    "prettier": "^1.15.2",
+    "ts-loader": "^5.3.1"
   }
 }

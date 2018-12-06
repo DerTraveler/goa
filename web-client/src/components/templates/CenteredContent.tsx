@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Grid from '@material-ui/core/Grid';
+import Grid, { GridSize } from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 
 import BaseTemplate from './BaseTemplate';
@@ -11,7 +10,15 @@ const styles = {
   },
 };
 
-const CenteredContent = ({ children, width, classes }) => (
+interface Props {
+  children: React.ReactNode;
+  width?: GridSize;
+  classes: {
+    root: string;
+  };
+}
+
+const CenteredContent = ({ children, width = 4, classes }: Props) => (
   <BaseTemplate>
     <Grid container justify="center" alignItems="center" className={classes.root}>
       <Grid item xs={width}>
@@ -20,13 +27,5 @@ const CenteredContent = ({ children, width, classes }) => (
     </Grid>
   </BaseTemplate>
 );
-
-CenteredContent.propTypes = {
-  width: PropTypes.number,
-};
-
-CenteredContent.defaultProps = {
-  width: 4,
-};
 
 export default withStyles(styles)(CenteredContent);

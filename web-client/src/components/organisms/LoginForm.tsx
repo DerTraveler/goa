@@ -1,22 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 import _ from 'lodash';
 
-class LoginForm extends React.Component {
+export type LoginMethod = (info: { user: string; password: string }) => void;
+
+interface Props {
+  onLogin: LoginMethod;
+}
+
+class LoginForm extends React.Component<Props> {
   state = {
     user: '',
     password: '',
   };
 
-  propTypes = {
-    onLogin: PropTypes.func.isRequired,
-  };
-
-  handleChange = name => event => {
+  handleChange = (name: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ [name]: event.target.value });
   };
 

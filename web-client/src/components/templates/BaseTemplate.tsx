@@ -1,7 +1,11 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-const BaseTemplate = ({ children }) => (
+interface PropsType {
+  children: React.ReactNode;
+}
+
+const BaseTemplate = ({ children }: PropsType) => (
   <React.Fragment>
     <CssBaseline />
     {children}

@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { withStyles } from '@material-ui/core/styles';
 
-const styles = ({ palette }) => ({
+const styles = ({ palette }: any) => ({
   root: {
     '& .PhotoHeader': {
       display: 'none',
@@ -22,7 +21,17 @@ const styles = ({ palette }) => ({
   },
 });
 
-const Photo = ({ classes, photo }) => (
+interface Props {
+  classes: {
+    root: string;
+    icon: string;
+  };
+  photo: {
+    thumbnail: string;
+  };
+}
+
+const Photo = ({ classes, photo }: Props) => (
   <GridListTile className={classes.root}>
     <img src={photo.thumbnail} alt="" />
     <GridListTileBar
@@ -36,9 +45,5 @@ const Photo = ({ classes, photo }) => (
     />
   </GridListTile>
 );
-
-Photo.propTypes = {
-  photo: PropTypes.string.isRequired,
-};
 
 export default withStyles(styles)(Photo);
