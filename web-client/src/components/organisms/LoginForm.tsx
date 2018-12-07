@@ -5,10 +5,10 @@ import Button from '@material-ui/core/Button';
 
 import _ from 'lodash';
 
-export type LoginMethod = (info: { user: string; password: string }) => void;
+export type LoginInfo = { user: string; password: string };
 
 interface Props {
-  onLogin: LoginMethod;
+  onSubmit: (info: LoginInfo) => any;
 }
 
 class LoginForm extends React.Component<Props> {
@@ -22,8 +22,8 @@ class LoginForm extends React.Component<Props> {
   };
 
   handleLogin = () => {
-    const { onLogin } = this.props;
-    onLogin(_.pick(this.state, ['user', 'password']));
+    const { onSubmit } = this.props;
+    onSubmit(_.pick(this.state, ['user', 'password']));
   };
 
   render = () => {

@@ -4,19 +4,19 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 import CenteredContent from '../templates/CenteredContent';
-import LoginForm, { LoginMethod } from '../organisms/LoginForm';
+import LoginForm, { LoginInfo } from '../organisms/LoginForm';
 
 const styles = {};
 
 interface Props {
-  onLogin: LoginMethod;
+  onLogin: (info: LoginInfo) => Promise<any>;
 }
 
 const SignIn = ({ onLogin }: Props) => (
   <CenteredContent>
     <Card>
       <CardContent>
-        <LoginForm onLogin={onLogin} />
+        <LoginForm onSubmit={onLogin} />
       </CardContent>
     </Card>
   </CenteredContent>
