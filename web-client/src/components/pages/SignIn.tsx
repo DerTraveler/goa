@@ -12,14 +12,28 @@ interface Props {
   onLogin: (info: LoginInfo) => Promise<any>;
 }
 
-const SignIn = ({ onLogin }: Props) => (
-  <CenteredContent>
-    <Card>
-      <CardContent>
-        <LoginForm onSubmit={onLogin} />
-      </CardContent>
-    </Card>
-  </CenteredContent>
-);
+class SignIn extends React.Component<Props> {
+  handleLogin = async (info: LoginInfo) => {
+    const { onLogin } = this.props;
+    try {
+      const userInfo = await onLogin(info);
+      console.log(userInfo);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  render() {
+    return (
+      <CenteredContent>
+        <Card>
+          <CardContent>
+            <LoginForm onSubmit={this.handleLogin} />
+          </CardContent>
+        </Card>
+      </CenteredContent>
+    );
+  }
+}
 
 export default withStyles(styles)(SignIn);
