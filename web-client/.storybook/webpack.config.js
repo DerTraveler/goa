@@ -6,7 +6,10 @@ module.exports = {
     rules: [
       {
         test: /\.tsx$/,
-        loader: 'babel-loader!ts-loader',
+        loader: require.resolve('babel-loader'),
+        options: {
+          presets: [['react-app', { flow: false, typescript: true }]],
+        },
         exclude: /node_modules/,
         include,
       },
