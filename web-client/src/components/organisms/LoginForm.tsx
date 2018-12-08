@@ -13,14 +13,16 @@ interface Props {
   onSubmit: (info: LoginInfo) => any;
 }
 
-class LoginForm extends React.Component<Props> {
-  state = {
+type State = LoginInfo;
+
+class LoginForm extends React.Component<Props, State> {
+  state: State = {
     user: '',
     password: '',
   };
 
-  handleChange = (name: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ [name]: event.target.value });
+  handleChange = (name: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ [name]: event.target.value } as Pick<State, keyof State>);
   };
 
   handleLogin = () => {
