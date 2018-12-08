@@ -4,22 +4,48 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 import CenteredContent from '../templates/CenteredContent';
-import LoginForm, { LoginInfo } from '../organisms/LoginForm';
+import LoginForm, { LoginInfo as LoginInfoType } from '../organisms/LoginForm';
 
 const styles = {};
 
-interface Props {
-  onLogin: (info: LoginInfo) => Promise<any>;
+type LoginInfo = LoginInfoType;
+
+export interface LoginSuccess {
+  success: true;
+  userInfo: string;
+}
+export interface LoginError {
+  success: false;
+  userError?: string;
+  passwordError?: string;
 }
 
-class SignIn extends React.Component<Props> {
+export type LogInMethod = (info: LoginInfo) => Promise<LoginSuccess | LoginError>;
+
+interface Props {
+  onLogin: LogInMethod;
+}
+
+interface State {
+  userError: string;
+  passwordError: string;
+}
+
+class SignIn extends React.Component<Props, State> {
+  state = {
+    userError: '',
+    passwordError: '',
+  };
+
   handleLogin = async (info: LoginInfo) => {
     const { onLogin } = this.props;
-    try {
-      const userInfo = await onLogin(info);
-      console.log(userInfo);
-    } catch (error) {
-      console.error(error);
+    const userInfo = await onLogin(info);
+    if (userInfo.success) {
+    } else {
+      this.setState({
+        userError: userInfo.userError || '',
+        passwordError: userInfo.passwordError || '',
+      });
     }
   };
 
@@ -28,7 +54,7 @@ class SignIn extends React.Component<Props> {
       <CenteredContent>
         <Card>
           <CardContent>
-            <LoginForm onSubmit={this.handleLogin} />
+            <LoginForm onSubmit={this.handleLogin} {...this.state} />
           </CardContent>
         </Card>
       </CenteredContent>
