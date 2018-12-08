@@ -8,6 +8,8 @@ import _ from 'lodash';
 export type LoginInfo = { user: string; password: string };
 
 interface Props {
+  userError?: string;
+  passwordError?: string;
   onSubmit: (info: LoginInfo) => any;
 }
 
@@ -28,18 +30,28 @@ class LoginForm extends React.Component<Props> {
 
   render = () => {
     const { user, password } = this.state;
+    const { userError = '', passwordError = '' } = this.props;
 
     return (
       <Grid container>
         <Grid item xs={12}>
-          <TextField fullWidth label="User" value={user} onChange={this.handleChange('user')} />
+          <TextField
+            fullWidth
+            error={!!userError}
+            label="User"
+            value={user}
+            helperText={userError}
+            onChange={this.handleChange('user')}
+          />
         </Grid>
         <Grid item xs={12}>
           <TextField
             fullWidth
+            error={!!passwordError}
             type="password"
             label="Password"
             value={password}
+            helperText={passwordError}
             onChange={this.handleChange('password')}
           />
         </Grid>
