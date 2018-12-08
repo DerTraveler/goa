@@ -6,6 +6,7 @@ const BbPromise = require('bluebird');
 
 const helper = require('./lib/helper');
 const setupUserPoolClient = require('./lib/setupUserPoolClient');
+const setupWebClient = require('./lib/setupWebClient');
 
 class GoaPlugin {
   constructor(serverless, options) {
@@ -13,7 +14,7 @@ class GoaPlugin {
     this.options = options;
     this.provider = this.serverless.getProvider('aws');
 
-    Object.assign(this, helper, setupUserPoolClient);
+    Object.assign(this, helper, setupUserPoolClient, setupWebClient);
 
     this.commands = {
       'setup-goa': {
@@ -25,7 +26,8 @@ class GoaPlugin {
       'setup-goa:execute': () =>
         BbPromise.bind(this)
           .then(this.retrievePhysicalIds)
-          .then(this.setupUserPoolClient),
+          .then(this.setupUserPoolClient)
+          .then(this.setupWebClient),
     };
   }
 }
