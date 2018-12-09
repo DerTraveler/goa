@@ -12,7 +12,6 @@ type LoginInfo = LoginInfoType;
 
 export interface LoginSuccess {
   success: true;
-  userInfo: string;
 }
 export interface LoginError {
   success: false;
@@ -38,13 +37,18 @@ class SignIn extends React.Component<Props, State> {
   };
 
   handleLogin = async (info: LoginInfo) => {
+    this.setState({
+      userError: '',
+      passwordError: '',
+    });
+
     const { onLogin } = this.props;
-    const userInfo = await onLogin(info);
-    if (userInfo.success) {
+    const loginResult = await onLogin(info);
+    if (loginResult.success) {
     } else {
       this.setState({
-        userError: userInfo.userError || '',
-        passwordError: userInfo.passwordError || '',
+        userError: loginResult.userError || '',
+        passwordError: loginResult.passwordError || '',
       });
     }
   };

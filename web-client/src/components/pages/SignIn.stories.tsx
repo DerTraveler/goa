@@ -12,7 +12,7 @@ storiesOf('SignIn', module).add('default', () => {
   );
   let result: LoginSuccess | LoginError;
   if (value == 'success') {
-    result = { success: true, userInfo: 'abc' };
+    result = { success: true };
   } else if (value == 'user fail') {
     result = { success: false, userError: 'Unknown user' };
   } else if (value == 'password fail') {

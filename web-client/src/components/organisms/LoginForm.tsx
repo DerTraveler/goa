@@ -58,7 +58,7 @@ class LoginForm extends React.Component<Props, State> {
           />
         </Grid>
         <Grid item xs={12}>
-          <Button fullWidth onClick={this.handleLogin}>
+          <Button fullWidth onClick={this.handleLogin} disabled={!user || !password}>
             Login
           </Button>
         </Grid>
