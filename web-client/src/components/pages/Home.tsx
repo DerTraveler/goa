@@ -1,6 +1,15 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
-const Home = () => <Redirect to="/sign_in" />;
+const styles = {};
 
-export default Home;
+export type LogOutMethod = () => Promise<any>;
+
+interface Props {
+  onLogout: LogOutMethod;
+}
+
+const Home = (props: Props) => <Button onClick={props.onLogout}>Logout</Button>;
+
+export default withStyles(styles)(Home);

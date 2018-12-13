@@ -25,6 +25,8 @@ export const signIn: LogInMethod = async ({ user, password }) => {
   }
 };
 
+export const signOut = async () => Auth.signOut();
+
 export const isSignedIn = async () => {
   if (data.currentUser) {
     return true;
