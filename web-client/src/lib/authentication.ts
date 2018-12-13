@@ -24,3 +24,16 @@ export const signIn: LogInMethod = async ({ user, password }) => {
     return { success: false, userError: error.message };
   }
 };
+
+export const isSignedIn = async () => {
+  if (data.currentUser) {
+    return true;
+  }
+
+  try {
+    data.currentUser = await Auth.currentAuthenticatedUser();
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
